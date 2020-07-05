@@ -1,5 +1,29 @@
 import React from "react";
+import { ProductConsumer } from "../context";
+import styled from "styled-components";
+// import {} from "react-icons";
 
-export default function Navbar() {
-  return <div>hello from navbar</div>;
+const NavbarWrape = styled.nav`
+
+`;
+
+const Navbar = () => {
+  return (
+  	<>
+      <ProductConsumer>
+      	{value => {
+      		const {sidebarState, cardState, cardItems} = value;
+      		return <NavbarWrape>
+      			Hello Nav - {cardItems}
+
+      		</NavbarWrape>;
+
+
+      	}}
+      </ProductConsumer>
+    </>
+
+  	)
 }
+
+export default Navbar;
